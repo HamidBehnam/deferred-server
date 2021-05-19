@@ -22,6 +22,13 @@ class Config {
     }
 
     public validateAndApplyArgs(argv: any): boolean {
+
+        if (argv._) {
+            if (!argv._.includes('start')) {
+                throw new Error(`missing the required command (start)`);
+            }
+        }
+
         if (argv.port) {
             const portMin = 1024;
             const portMax = 49151;

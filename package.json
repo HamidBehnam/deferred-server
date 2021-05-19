@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "build:watch:debug": "tsc --watch --sourceMap"
+    "build:watch:debug": "tsc --watch --sourceMap",
+    "start": "node dist/index.js",
+    "start:watch": "nodemon dist/index.js start",
+    "start:watch:debug": "nodemon --inspect dist/index.js start"
   },
   "author": "",
   "license": "ISC",

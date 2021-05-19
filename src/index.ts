@@ -10,7 +10,7 @@ yargs(hideBin(process.argv))
         server.start();
     })
     .demandCommand(1)
-    .example('$0 start -p 3030 -o http://localhost:4040', 'start the deferred-server to serve the files in the given directory')
+    .example('deferred-server start -p 4040 -o http://localhost:4040', 'start the deferred-server to serve the files in the current directory')
     .option('port', {
         alias: 'p',
         type: 'number',
@@ -19,17 +19,17 @@ yargs(hideBin(process.argv))
     .option('origin', {
         alias: 'o',
         type: 'string',
-        description: 'allowed origin'
+        description: "Allowed Origin (optional, default: accessible from all origins)"
     })
     .option('credentials', {
         alias: 'c',
         type: 'boolean',
-        description: 'credentials'
+        description: 'Credentials (optional, default: true)'
     })
     .option('replace', {
         alias: 'r',
         type: 'boolean',
-        description: 'replace success status'
+        description: 'Replace success status code 204 with 200 (optional, default: true)'
     })
     .check((argv) => {
         return config.validateAndApplyArgs(argv);

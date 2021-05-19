@@ -5,6 +5,10 @@ export const router = (): Router => {
 
     const router = Router();
 
+    router.get('/:filename', [
+        controller.sendFile
+    ]);
+
     router.get('/:filename/:delay', [
         controller.sendFile
     ]);
