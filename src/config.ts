@@ -1,4 +1,5 @@
 import { CorsOptions } from 'cors';
+import chalk from 'chalk';
 
 class Config {
 
@@ -22,6 +23,8 @@ class Config {
     }
 
     public validateAndApplyArgs(argv: any): boolean {
+
+        console.log(chalk.green('Validation: Started ...'));
 
         if (argv._) {
             if (!argv._.includes('start')) {
@@ -58,6 +61,8 @@ class Config {
                 this._corsOptions.optionsSuccessStatus = 200;
             }
         }
+
+        console.log(chalk.green('Validation: Success!'));
 
         return true;
     }
